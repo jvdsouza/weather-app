@@ -8,10 +8,11 @@ const appID="c3860854e4b445d4a7d20312191901";
 //free api key
 
 const initialState = {
-  input: "",
+  userInput: "",
   location: "London",
   weatherDataC: "",
   weatherDataF: "",
+  success: true
 }
 class App extends Component {
   constructor() {
@@ -20,25 +21,16 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    // console.log("before typing " ,this.state.location);
-    this.setState({
-      input: event.target.value
-    });
-    console.log("after typing ", this.state.input);
+    this.setState({userInput: event.target.value});
   }
 
   onButtonSubmit = () => {
-    console.log("before submission", this.state.location);
-    this.setState({
-      location: this.state.input
-    });
-    console.log("after typing ", this.state.input);
-    console.log("after submission", this.state.location);
+    this.setState({location: this.state.userInput});
 
     //fetch the weather api
     fetch(`https://api.apixu.com/v1/current.json?key=${appID}&q=${this.state.location}`)
       .then(response => {
-        console.log(response)
+        this.setState({success: true});
         return response.json();
       })
       .then(data => {
@@ -47,7 +39,7 @@ class App extends Component {
           weatherDataF: data.current.temp_f
         })
       })
-      .catch(err => console.log(err))
+      .catch(this.setState({success: false}));
   }
 
 
@@ -57,7 +49,9 @@ class App extends Component {
         <Card
           weatherCelc={this.state.weatherDataC}
           weatherFar={this.state.weatherDataF}
+          userInput={this.state.userInput}
           location={this.state.location}
+          success={this.state.success}
         />
         <Search onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
       </div>
