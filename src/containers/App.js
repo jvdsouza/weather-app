@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../components/Card/Card';
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import Search from '../components/Search/Search';
 import './App.css';
 
@@ -8,7 +9,7 @@ const appID="c3860854e4b445d4a7d20312191901";
 //free api key
 
 const initialState = {
-  userInput: "",
+  userInput: "London",
   location: "London",
   weatherDataC: "",
   weatherDataF: "",
@@ -18,6 +19,21 @@ class App extends Component {
   constructor() {
     super();
     this.state =  initialState;
+  }
+
+  componentDidMount() {
+    fetch(`https://api.apixu.com/v1/current.json?key=${appID}&q=${this.state.userInput}`)
+      .then(response => {
+        this.setState({success: true});
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          weatherDataC: data.current.temp_c,
+          weatherDataF: data.current.temp_f
+        })
+      })
+      .catch(this.setState({success: false}));
   }
 
   onInputChange = (event) => {
@@ -36,7 +52,7 @@ class App extends Component {
         this.setState({
           weatherDataC: data.current.temp_c,
           weatherDataF: data.current.temp_f
-        })
+        }).catch(this.setState({success:false}));
       })
       .catch(this.setState({success: false}));
   }
@@ -45,14 +61,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Card
-          weatherCelc={this.state.weatherDataC}
-          weatherFar={this.state.weatherDataF}
-          userInput={this.state.userInput}
-          location={this.state.location}
-          success={this.state.success}
-        />
-        <Search onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+        <ErrorBoundary>
+          <Card
+            weatherCelc={this.state.weatherDataC}
+            weatherFar={this.state.weatherDataF}
+            userInput={this.state.userInput}
+            location={this.state.location}
+            success={this.state.success}
+          />
+          <Search onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+      </ErrorBoundary>
       </div>
     );
   }
