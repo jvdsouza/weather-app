@@ -25,10 +25,10 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({location: this.state.userInput});
+    this.setState({location: this.state.userInput}) //setState is asynchronous
 
     //fetch the weather api
-    fetch(`https://api.apixu.com/v1/current.json?key=${appID}&q=${this.state.location}`)
+    fetch(`https://api.apixu.com/v1/current.json?key=${appID}&q=${this.state.userInput}`)
       .then(response => {
         this.setState({success: true});
         return response.json();

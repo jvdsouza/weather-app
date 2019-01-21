@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({weatherCelc, weatherFar, userInput, location, success}) => {
+const Card = ({weatherCelc, weatherFar, userInput, success}) => {
     return(
       <div>
         <h1>Weather Data for: {userInput}</h1>
