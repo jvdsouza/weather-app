@@ -27,11 +27,11 @@ class App extends Component {
     console.log("after typing ", this.state.input);
   }
 
-  onButtonSubmit = (event) => {
-    // console.log("before", this.state.location);
+  onButtonSubmit = () => {
+    console.log("before submission", this.state.location);
     this.setState({
       location: this.state.input
-    })
+    });
     console.log("after typing ", this.state.input);
     console.log("after submission", this.state.location);
 
