@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../components/Card/Card';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
-import Search from '../components/Search/Search';
+// import Search from '../components/Search/Search';
 import './App.css';
 
 const appID="c3860854e4b445d4a7d20312191901";
@@ -52,7 +52,7 @@ class App extends Component {
         this.setState({
           weatherDataC: data.current.temp_c,
           weatherDataF: data.current.temp_f
-        }).catch(this.setState({success:false}));
+        })
       })
       .catch(this.setState({success: false}));
   }
@@ -68,8 +68,9 @@ class App extends Component {
             userInput={this.state.userInput}
             location={this.state.location}
             success={this.state.success}
+            onInputChange={this.onInputChange}
+            onButtonSubmit={this.onButtonSubmit}
           />
-          <Search onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
       </ErrorBoundary>
       </div>
     );
