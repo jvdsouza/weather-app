@@ -15,6 +15,7 @@ const initialState = {
   weatherDataF: "",
   success: true
 }
+
 class App extends Component {
   constructor() {
     super();
