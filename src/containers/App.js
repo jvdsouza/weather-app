@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../components/Card/Card';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import SimpleMap from './Google-map';
 // import Search from '../components/Search/Search';
 import './App.css';
 
@@ -72,6 +73,7 @@ class App extends Component {
             onInputChange={this.onInputChange}
             onButtonSubmit={this.onButtonSubmit}
           />
+          <SimpleMap/> /*To do*/
       </ErrorBoundary>
       </div>
     );
