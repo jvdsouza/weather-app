@@ -8,16 +8,17 @@
   display: flex;
   flex-flow: column nowrap;
   font-family: 'Heebo', sans-serif;
+  color: white;
   align-items: center;
   margin: auto;
   margin-bottom: 10px;
   width: 95%;
-  background-color:silver;
+  background-color:rgb(0,128,128);
   background-image:
-  radial-gradient(circle at 100% 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
-  radial-gradient(circle at 0    150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
-  radial-gradient(circle at 50%  100%, white 10%, silver 11%, silver 23%, white 24%, white 30%, silver 31%, silver 43%, white 44%, white 50%, silver 51%, silver 63%, white 64%, white 71%, transparent 71%, transparent),
-  radial-gradient(circle at 100% 50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent),
-  radial-gradient(circle at 0    50%, white 5%, silver 6%, silver 15%, white 16%, white 20%, silver 21%, silver 30%, white 31%, white 35%, silver 36%, silver 45%, white 46%, white 49%, transparent 50%, transparent);
+  radial-gradient(circle at 100% 150%, rgb(0,128,128) 24%, rgb(25, 62, 82) 25%, rgb(25, 62, 82) 28%, rgb(0,128,128) 29%, rgb(0,128,128) 36%, rgb(25, 62, 82) 36%, rgb(25, 62, 82) 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, rgb(0,128,128) 24%, rgb(25, 62, 82) 25%, rgb(25, 62, 82) 28%, rgb(0,128,128) 29%, rgb(0,128,128) 36%, rgb(25, 62, 82) 36%, rgb(25, 62, 82) 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, rgb(25, 62, 82) 10%, rgb(0,128,128) 11%, rgb(0,128,128) 23%, rgb(25, 62, 82) 24%, rgb(25, 62, 82) 30%, rgb(0,128,128) 31%, rgb(0,128,128) 43%, rgb(25, 62, 82) 44%, rgb(25, 62, 82) 50%, rgb(0,128,128) 51%, rgb(0,128,128) 63%, rgb(25, 62, 82) 64%, rgb(25, 62, 82) 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, rgb(25, 62, 82) 5%, rgb(0,128,128) 6%, rgb(0,128,128) 15%, rgb(25, 62, 82) 16%, rgb(25, 62, 82) 20%, rgb(0,128,128) 21%, rgb(0,128,128) 30%, rgb(25, 62, 82) 31%, rgb(25, 62, 82) 35%, rgb(0,128,128) 36%, rgb(0,128,128) 45%, rgb(25, 62, 82) 46%, rgb(25, 62, 82) 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, rgb(25, 62, 82) 5%, rgb(0,128,128) 6%, rgb(0,128,128) 15%, rgb(25, 62, 82) 16%, rgb(25, 62, 82) 20%, rgb(0,128,128) 21%, rgb(0,128,128) 30%, rgb(25, 62, 82) 31%, rgb(25, 62, 82) 35%, rgb(0,128,128) 36%, rgb(0,128,128) 45%, rgb(25, 62, 82) 46%, rgb(25, 62, 82) 49%, transparent 50%, transparent);
   background-size: 100px 50px;
 }
