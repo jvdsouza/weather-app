@@ -5,8 +5,8 @@ import GoogleMapReact from 'google-map-react'
 
 const AnyReactComponent = ({ text }) => {
   return(
-    <div className='ba pr5 pl2 br4 b'>
-      { text }
+    <div className='ba pr5 pl2 br3 b'>
+      <div className='tc'>{ text }</div>
     </div>
   )
 }
@@ -15,9 +15,9 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <div className='google-map' style={{ height: '80vh', width: '90%', padding: 'auto', margin: 'auto' }}>
+        <div className='google-map' style={{ height: '75vh', width: '90%', padding: 'auto', margin: 'auto' }}>
           <GoogleMapReact
-            bootstrapURLKeys={{ key: /* YOUR GOOGLE MAPS API KEY HERE */ }}
+            bootstrapURLKeys={{ key: /*API KEY HERE*/ }}
             center={{ lat:this.props.lat, lng:this.props.lng }}
             defaultZoom={11}>
             <AnyReactComponent
