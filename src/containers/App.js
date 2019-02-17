@@ -5,7 +5,7 @@ import Map from '../containers/GoogleMap/GoogleMap';
 // import Search from '../components/Search/Search';
 import './App.css';
 
-const weatherAppID="c3860854e4b445d4a7d20312191901";
+const weatherAppID = process.env.REACT_APP_WEATHER_APIKEY;
 //API key obtained from https://www.apixu.com/
 //free api key
 
@@ -25,8 +25,8 @@ class App extends Component {
     this.state =  initialState;
   }
 
-  componentDidMount() {
-    fetch(`https://api.apixu.com/v1/current.json?key=${weatherAppID}&q=${this.state.userInput}`)
+  fetchWeather() {
+    fetch(`https://api.apixu.com/v1/forecast.json?key=${weatherAppID}&q=${this.state.userInput}`)
       .then(response => {
         return response.json();
       })
@@ -38,9 +38,12 @@ class App extends Component {
           lng: data.location.lon,
           status: null
         })
-        console.log(this.state.lat, this.state.lng);
       })
       .catch(err => console.log(err));
+  }
+
+  componentDidMount() {
+    this.fetchWeather();
   }
 
   onInputChange = (event) => {
@@ -49,22 +52,7 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
-    this.setState({location: this.state.userInput}) //setState is asynchronous
-    //fetch the weather api
-    fetch(`https://api.apixu.com/v1/current.json?key=${weatherAppID}&q=${this.state.userInput}`)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          weatherDataC: data.current.temp_c,
-          weatherDataF: data.current.temp_f,
-          lat: data.location.lat,
-          lng: data.location.lon,
-          status: null
-        })
-      })
-      .catch(err => console.log(err));
+    this.fetchWeather();
   }
 
 
@@ -79,7 +67,6 @@ class App extends Component {
               weatherFar={this.state.weatherDataF}
               userInput={this.state.userInput}
               location={this.state.location}
-              success={this.state.success}
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
