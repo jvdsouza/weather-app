@@ -1,0 +1,7 @@
+.dailyForecast{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background-color: rgba(13, 30, 43, 0.8);
+  margin-bottom: 10px;
+}

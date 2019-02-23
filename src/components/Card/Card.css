@@ -11,7 +11,7 @@
   color: white;
   align-items: center;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   width: 95%;
   background-color:rgb(0,128,128);
   background-image:
@@ -21,4 +21,10 @@
   radial-gradient(circle at 100% 50%, rgb(25, 62, 82) 5%, rgb(0,128,128) 6%, rgb(0,128,128) 15%, rgb(25, 62, 82) 16%, rgb(25, 62, 82) 20%, rgb(0,128,128) 21%, rgb(0,128,128) 30%, rgb(25, 62, 82) 31%, rgb(25, 62, 82) 35%, rgb(0,128,128) 36%, rgb(0,128,128) 45%, rgb(25, 62, 82) 46%, rgb(25, 62, 82) 49%, transparent 50%, transparent),
   radial-gradient(circle at 0    50%, rgb(25, 62, 82) 5%, rgb(0,128,128) 6%, rgb(0,128,128) 15%, rgb(25, 62, 82) 16%, rgb(25, 62, 82) 20%, rgb(0,128,128) 21%, rgb(0,128,128) 30%, rgb(25, 62, 82) 31%, rgb(25, 62, 82) 35%, rgb(0,128,128) 36%, rgb(0,128,128) 45%, rgb(25, 62, 82) 46%, rgb(25, 62, 82) 49%, transparent 50%, transparent);
   background-size: 100px 50px;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }

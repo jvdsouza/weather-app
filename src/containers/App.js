@@ -14,6 +14,8 @@ const initialState = {
   location: "London",
   weatherDataC: "",
   weatherDataF: "",
+  conditionIcon:"",
+  forecast: {},
   lat: 40.7446790,
   lng: -73.9485420,
   status: 'loading'
@@ -31,11 +33,14 @@ class App extends Component {
         return response.json();
       })
       .then(data => {
+        console.log(data.forecast.forecastday[0].day)
         this.setState({
           weatherDataC: data.current.temp_c,
           weatherDataF: data.current.temp_f,
           lat: data.location.lat,
           lng: data.location.lon,
+          conditionIcon: data.current.condition.icon,
+          forecast: data.forecast.forecastday[0].day,
           status: null
         })
       })
@@ -67,6 +72,8 @@ class App extends Component {
               weatherFar={this.state.weatherDataF}
               userInput={this.state.userInput}
               location={this.state.location}
+              condition={this.state.conditionIcon}
+              forecast={this.state.forecast}
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
